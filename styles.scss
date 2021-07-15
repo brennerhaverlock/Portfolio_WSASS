@@ -1,6 +1,6 @@
 $primaryColor: #eeffcc;
 $h1header:  #66bfbf;
-$myFontSize: 18px;
+$myFontSize:  5px + 2;
 
 
 
@@ -9,6 +9,7 @@ body {
     background: $primaryColor;
     margin: 0;
     font-size: $myFontSize;
+    font: 16px / 24px Arial sans-serif;
     text-align: center;
     font-family: 'Merriweather', serif;
   }
@@ -23,6 +24,8 @@ h1 {
     font-size: 5.625rem;
     margin: 50px auto 0 auto;
     font-family: 'Sacramento', cursive;
+    opacity: random(4) / 5; 
+    padding-right: 2px / 4px + 3px
   }
   
   h2 {
@@ -151,5 +154,26 @@ h1 {
     background-image: linear-gradient(to bottom, #30e3cb, #2bc4ad);
     text-decoration: none;
   }
+
+
+  @mixin string-concat {
+    &:after {
+        content: "This is a showcase of string concat" + Sass;
+        font: Arial + " sans-serif";
+    }
+}
+
+h2 {
+    @include string-concat;
+}
+
+$base-color: #036;
+
+@for $i from 1 through 3 {
+  ul:nth-child(3n + #{$i}) {
+    background-color: lighten($base-color, $i * 5%);
+  }
+}
+
   
   
